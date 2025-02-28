@@ -1,0 +1,5 @@
+edu\escuelaing\app\DemoApplication.class
+edu\escuelaing\app\realestate\service\PropertyService.class
+edu\escuelaing\app\realestate\repository\PropertyRepository.class
+edu\escuelaing\app\realestate\model\Property.class
+edu\escuelaing\app\realestate\controller\PropertyController.class
