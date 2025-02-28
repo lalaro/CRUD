@@ -1,3 +1,5 @@
+edu\escuelaing\app\realestate\config\CorsConfig$1.class
+edu\escuelaing\app\realestate\config\CorsConfig.class
 edu\escuelaing\app\DemoApplication.class
 edu\escuelaing\app\realestate\service\PropertyService.class
 edu\escuelaing\app\realestate\repository\PropertyRepository.class

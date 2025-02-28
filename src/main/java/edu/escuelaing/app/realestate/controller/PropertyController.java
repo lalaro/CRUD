@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/properties")
+@RequestMapping("/api/properties")
 @CrossOrigin("*")
 public class PropertyController {
 
@@ -18,13 +18,17 @@ public class PropertyController {
         this.propertyService = propertyService;
     }
 
-    // Obtener todas las propiedades
     @GetMapping
     public List<Property> getAllProperties() {
         return propertyService.getAllProperties();
     }
 
-    // Obtener una propiedad por ID
+
+    @GetMapping("/test")
+    public String testApi() {
+        return "API funcionando correctamente";
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Property> getPropertyById(@PathVariable Long id) {
         return propertyService.getPropertyById(id)
@@ -32,13 +36,11 @@ public class PropertyController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // Crear una nueva propiedad
     @PostMapping
     public ResponseEntity<Property> createProperty(@RequestBody Property property) {
         return ResponseEntity.ok(propertyService.createProperty(property));
     }
 
-    // Actualizar una propiedad
     @PutMapping("/{id}")
     public ResponseEntity<Property> updateProperty(@PathVariable Long id, @RequestBody Property updatedProperty) {
         try {
@@ -48,7 +50,6 @@ public class PropertyController {
         }
     }
 
-    // Eliminar una propiedad
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProperty(@PathVariable Long id) {
         propertyService.deleteProperty(id);
