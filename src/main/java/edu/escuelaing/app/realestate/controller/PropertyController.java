@@ -4,6 +4,9 @@ import edu.escuelaing.app.realestate.model.Property;
 import edu.escuelaing.app.realestate.service.PropertyService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 
 import java.util.List;
 
@@ -13,6 +16,7 @@ import java.util.List;
 public class PropertyController {
 
     private final PropertyService propertyService;
+    private static final Logger logger = LoggerFactory.getLogger(PropertyController.class);
 
     public PropertyController(PropertyService propertyService) {
         this.propertyService = propertyService;
@@ -44,9 +48,11 @@ public class PropertyController {
     @PutMapping("/{id}")
     public ResponseEntity<Property> updateProperty(@PathVariable Long id, @RequestBody Property updatedProperty) {
         try {
-            return ResponseEntity.ok(propertyService.updateProperty(id, updatedProperty));
+            Property property = propertyService.updateProperty(id, updatedProperty);
+            return ResponseEntity.ok(property);
         } catch (RuntimeException e) {
-            return ResponseEntity.notFound().build();
+            logger.error("Error updating property with id: {}", id, e);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
     }
 
