@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
     loadProperties();
     loadAllProperties();
 
-    // Event listener para el formulario de actualización
     document.getElementById("updateForm").addEventListener("submit", function(event) {
         event.preventDefault();
 
@@ -182,6 +181,5 @@ function loadAllProperties() {
         })
         .catch(error => {
             console.error("Error:", error);
-            // Mostrar un mensaje de error al usuario
         });
 }

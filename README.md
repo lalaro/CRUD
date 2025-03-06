@@ -11,7 +11,7 @@ Y luego revisar las intrucciones a continuación para el manejo de soluciones de
 
 ### Prerrequisitos
 
-Se necesita de Maven (La versión más reciente), IntelliJ, Docker, Git bash y Java 19, la instalación debe realizarse desde las paginas oficiales de cada programa.
+Se necesita de Maven (La versión más reciente), IntelliJ, Docker, Git bash y Java 21, la instalación debe realizarse desde las paginas oficiales de cada programa.
 
 
 ### Instalación
@@ -23,7 +23,7 @@ Luego revisamos que haya quedado bien configurado con el comando para Windows:
 o
 ` mvn -version `
 
-Para Java debe irse a https://www.oracle.com/java/technologies/downloads/?er=221886, descargar la versión 19 de Java y agregarse en la carpeta de Program Files, luego se hace la respectiva configuración de variables de entorno según la ubicación que tenemos para el archivo de instalación, tanto de JAVA_HOME y de Path.
+Para Java debe irse a https://www.oracle.com/java/technologies/downloads/?er=221886, descargar la versión 21 de Java y agregarse en la carpeta de Program Files, luego se hace la respectiva configuración de variables de entorno según la ubicación que tenemos para el archivo de instalación, tanto de JAVA_HOME y de Path.
 Luego revisamos que haya quedado bien configurado con el comando para Windows:
 
 ` java -version `
@@ -32,13 +32,13 @@ Si no tenemos la versión solicitada podemos hacer lo siguiente, para el caso de
 
 Ir al Windows PowerShell y ejecutar como administrador los siguientes codigos:
 
-` [System.Environment]::SetEnvironmentVariable("JAVA_HOME", "C:\Program Files\Java\jdk-19.0.2", [System.EnvironmentVariableTarget]::Machine) `
+` [System.Environment]::SetEnvironmentVariable("JAVA_HOME", "C:\Program Files\Java\jdk-21", [System.EnvironmentVariableTarget]::Machine) `
 
 Revisar las rutas de la máquina
 
-`  $env:JAVA_HOME = "C:\Program Files\Java\jdk-19.0.2" `
+`  $env:JAVA_HOME = "C:\Program Files\Java\jdk-21" `
 
-`  $env:Path = "C:\Program Files\Java\jdk-19.0.2\bin;" + $env:Path `
+`  $env:Path = "C:\Program Files\Java\jdk-21\bin;" + $env:Path `
 
 `  echo $env:JAVA_HOME `
 
@@ -47,8 +47,6 @@ Revisar las rutas de la máquina
 `  java -version `
 
 Así se debe ver:
-
-![image5.jpeg](src/main/resources/image5.jpeg)
 
 ## Solución del lab
 
