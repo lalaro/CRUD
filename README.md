@@ -56,6 +56,8 @@ Un sistema CRUD funcional que permite a los usuarios administrar listados de pro
 
 ### *Resumen del proyecto:*
 
+Este proyecto implementa una aplicación CRUD (Crear, Leer, Actualizar, Borrar) para la gestión de propiedades, desplegada en la infraestructura de AWS. La base de datos, se instaló y configuró directamente en una instancia EC2 de AWS. La aplicación, desarrollada en Java con Spring Boot, se dockerizó para facilitar su despliegue y escalabilidad. La imagen Docker resultante se desplegó en otra instancia EC2, configurando los puertos y la conectividad necesarios para interactuar con la base de datos remota. La interfaz de usuario, construida con HTML, CSS y JavaScript, permite a los usuarios realizar operaciones CRUD a través de una API RESTful, comunicándose con el backend dockerizado.
+
 ### *Arquitectura del sistema:*
 
 ### *Diseño de clases:*
@@ -167,7 +169,26 @@ Hay que tener en cuenta que DNS de IP4 pública, va cambiar cada que se iniciali
 
 ### *Capturas de pantalla:*
 
+Ejecución localmente:
 
+![image46.jpeg](src/main/resources/imagesReadme/screenshots/image46.jpeg)
+![image47.jpeg](src/main/resources/imagesReadme/screenshots/image47.jpeg)
+![image48.jpeg](src/main/resources/imagesReadme/screenshots/image48.jpeg)
+![image49.jpeg](src/main/resources/imagesReadme/screenshots/image49.jpeg)
+![image50.jpeg](src/main/resources/imagesReadme/screenshots/image50.jpeg)
+
+Ejecución dockerizada:
+
+![image51.jpeg](src/main/resources/imagesReadme/screenshots/image51.jpeg)
+![image52.jpeg](src/main/resources/imagesReadme/screenshots/image52.jpeg)
+![image53.jpeg](src/main/resources/imagesReadme/screenshots/image53.jpeg)
+
+Ejecución desplegada en AWS:
+
+![image54.1.jpeg](src/main/resources/imagesReadme/screenshots/image54.1.jpeg)
+![image54.jpeg](src/main/resources/imagesReadme/screenshots/image54.jpeg)
+![image55.jpeg](src/main/resources/imagesReadme/screenshots/image55.jpeg)
+![image56.jpeg](src/main/resources/imagesReadme/screenshots/image56.jpeg)
 
 ### *Video:*
 
@@ -196,11 +217,13 @@ Así se vera:
 
 Podemos Abrir en terminal el proyecto y compilar y empaquetar el proyecto desde el PowerShell, en el caso de Windows. Y ejecutamos los comandos:
 
-` mvn clean `
+` mvn clean install `
 
-` mvn compile `
+![image57.jpeg](src/main/resources/imagesReadme/otherScreenshots/image57.jpeg)
 
-` mvn package `
+` mvn spring-boot:run `
+
+![image58.jpeg](src/main/resources/imagesReadme/otherScreenshots/image58.jpeg)
 
 O de igual forma en el ID que deseemos.
 
