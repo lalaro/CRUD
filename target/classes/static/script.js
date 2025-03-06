@@ -1,7 +1,8 @@
-const apiUrl = "http://localhost:8080/api/properties"; // Cambia según tu backend
+const apiUrl = "http://localhost:8080/api/properties";
 
 document.addEventListener("DOMContentLoaded", () => {
     loadProperties();
+    loadAllProperties();
 });
 
 document.getElementById("propertyForm").addEventListener("submit", function(event) {
@@ -26,9 +27,10 @@ document.getElementById("propertyForm").addEventListener("submit", function(even
     })
     .then(response => response.json())
     .then(data => {
-        alert("Property added successfully!");
+        showNotification("Property added successfully!");
         document.getElementById("propertyForm").reset();
         loadProperties();
+        loadAllProperties();
     })
     .catch(error => console.error("Error:", error));
 });
@@ -60,8 +62,9 @@ function loadProperties() {
 function deleteProperty(id) {
     fetch(`${apiUrl}/${id}`, { method: "DELETE" })
         .then(() => {
-            alert("Property deleted!");
+            showNotification("Property deleted successfully!");
             loadProperties();
+            loadAllProperties(); // Llama a loadAllProperties después de eliminar
         })
         .catch(error => console.error("Error:", error));
 }
@@ -76,8 +79,35 @@ function updateProperty(id) {
         body: JSON.stringify({ price: newPrice })
     })
     .then(() => {
-        alert("Property updated!");
+        showNotification("Property updated successfully!");
         loadProperties();
+        loadAllProperties();
     })
     .catch(error => console.error("Error:", error));
+}
+
+function showNotification(message) {
+    const notificationDiv = document.getElementById("notification");
+    notificationDiv.textContent = message;
+    notificationDiv.style.display = "block";
+
+    setTimeout(() => {
+        notificationDiv.style.display = "none";
+    }, 3000);
+}
+
+function loadAllProperties() {
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(properties => {
+            const allPropertiesDiv = document.getElementById("allProperties");
+            allPropertiesDiv.innerHTML = "";
+
+            properties.forEach(property => {
+                const p = document.createElement("p");
+                p.textContent = `ID: ${property.id}, Address: ${property.address}, Price: $${property.price}, Size: ${property.size} sq ft, Description: ${property.description}`;
+                allPropertiesDiv.appendChild(p);
+            });
+        })
+        .catch(error => console.error("Error:", error));
 }

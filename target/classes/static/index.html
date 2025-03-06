@@ -4,12 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Property Management</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        input, textarea { display: block; margin: 10px 0; width: 100%; padding: 8px; }
-        button { padding: 10px; margin-top: 10px; cursor: pointer; }
-        .property-card { border: 1px solid #ccc; padding: 10px; margin: 10px 0; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -26,6 +21,9 @@
 <h3>Properties</h3>
 <div id="propertyList"></div>
 
+<h3>All Properties</h3>
+<div id="allProperties"></div>
+<div id="notification" style="display: none; position: fixed; top: 20px; right: 20px; background-color: #007bff; color: white; padding: 15px; border-radius: 5px;"></div>
 <script src="script.js"></script>
 </body>
 </html>
