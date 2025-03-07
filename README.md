@@ -60,6 +60,10 @@ Este proyecto implementa una aplicación CRUD (Crear, Leer, Actualizar, Borrar) 
 
 ### *Arquitectura del sistema:*
 
+![image2.jpeg](src/main/resources/imagesReadme/image2.jpeg)
+
+Diseñé esta arquitectura para mi aplicación CRUD, asegurando la integración entre el frontend, el backend y la base de datos, utilizando AWS, Docker e instancias de EC2. El frontend, desarrollado con HTML, CSS y JavaScript, se ejecuta en un servidor local y envía solicitudes HTTP al backend, que implementé como una API REST contenedorizada con Docker y desplegada en AWS EC2 dentro del servicio DockerWebApp. Para la persistencia de datos, utilicé MySQL, también contenedorizado y alojado en otra instancia de EC2 bajo el servicio database-lalaro. La comunicación entre los componentes se realiza mediante solicitudes a la API (ec2-...compute-1.amazonaws.com:42000/api/properties), que responde con datos en JSON, permitiendo su visualización en la interfaz web. Esta infraestructura escalable y eficiente facilita el despliegue en la nube, asegurando una integración fluida y un mantenimiento optimizado.
+
 ### *Diseño de clases:*
 
 Esta aplicación usa CorsConfig para permitir que el frontend acceda a la API. Sin esto, el navegador bloquearía las peticiones. Permite el acceso desde otros dominios.
