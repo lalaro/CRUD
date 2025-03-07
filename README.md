@@ -192,26 +192,67 @@ Ejecución desplegada en AWS:
 
 ### *Video:*
 
-
-
-
+El video del despliegue funcionando: [Video](https://youtu.be/t8LaRtRcKFg)
 
 ## Ejecutando las pruebas
 
 Podemos Abrir en terminal el proyecto y ejecutar las pruebas desde el PowerShell, en el caso de Windows. Y ejecutamos el comando:
 
+Cabe recalcalcar que se pueden generar Advertencias, porque ya no está conectada la base de datos.
 ` mvn test `
 
 O de igual forma en el ID que deseemos.
 
 Así se vera:
 
+![image59.jpeg](src/main/resources/imagesReadme/otherScreenshots/image59.jpeg)
+![image60.jpeg](src/main/resources/imagesReadme/otherScreenshots/image60.jpeg)
 
 ### Desglose en pruebas de extremo a extremo
 
+1. testUpdateProperty_ReturnsUpdatedProperty
+
+Qué prueba: Verifica que la actualización de una propiedad con ID 1 devuelva la propiedad actualizada con los nuevos datos.
+Por qué la prueba: Asegura que la API permite actualizar correctamente una propiedad existente y devuelve los valores modificados.
+
+2. testGetAllProperties
+   
+Qué prueba: Verifica que la API devuelve correctamente una lista con todas las propiedades almacenadas.
+Por qué la prueba: Asegura que el endpoint de consulta de propiedades funciona correctamente y devuelve el número esperado de elementos.
+
+3. testGetPropertyById_WhenFound
+   
+Qué prueba: Verifica que la API devuelva correctamente una propiedad cuando se consulta por su ID y que los valores sean los esperados.
+Por qué la prueba: Asegura que el servicio puede recuperar correctamente una propiedad específica a partir de su identificador único.
+
+4. testGetPropertyById_WhenNotExists
+   
+Qué prueba: Verifica que la API responde con un estado 404 Not Found cuando se consulta una propiedad inexistente por su ID.
+Por qué la prueba: Asegura que el sistema maneja correctamente los casos en los que se intenta acceder a un recurso que no existe.
+
+5. testCreateProperty
+   
+Qué prueba: Verifica que la API permite la creación de una nueva propiedad y devuelve la propiedad recién creada con los datos esperados.
+Por qué la prueba: Asegura que el endpoint de creación de propiedades funciona correctamente y que la API puede manejar solicitudes de inserción de nuevos registros.
+
+6. testUpdateProperty
+   
+Qué prueba: Verifica que la API actualiza una propiedad con ID 1 y devuelve los nuevos datos correctamente.
+Por qué la prueba: Asegura que la API maneja correctamente las solicitudes de actualización y devuelve la información modificada.
+
+7. testUpdateProperty_WhenNotExists
+   
+Qué prueba: Verifica que la API responde con un estado 404 Not Found cuando se intenta actualizar una propiedad que no existe.
+Por qué la prueba: Asegura que la API maneja correctamente las solicitudes de actualización sobre recursos inexistentes.
+
+8. testDeleteProperty
+   
+Qué prueba: Verifica que la API permite eliminar una propiedad con ID 1 y responde con el estado 204 No Content.
+Por qué la prueba: Asegura que la API maneja correctamente las solicitudes de eliminación y que el recurso desaparece del sistema después de la operación.
 
 ### Y pruebas de estilo de código
 
+stas pruebas verifican que las operaciones de creación, lectura, actualización y eliminación (Create, Read, Update, Delete) se ejecuten correctamente, asegurando que la API maneje adecuadamente las solicitudes y respuestas. Se probaron casos exitosos, donde los datos se almacenan y recuperan correctamente, así como casos de error, como la consulta o modificación de propiedades inexistentes, garantizando una gestión robusta y fiable del sistema.
 
 ## Despliegue
 
@@ -227,7 +268,7 @@ Podemos Abrir en terminal el proyecto y compilar y empaquetar el proyecto desde 
 
 O de igual forma en el ID que deseemos.
 
-Así se vera:
+Cabe recalcalcar que se pueden generar Advertencias, porque ya no está conectada la base de datos.
 
 ## Construido con
 
